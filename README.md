@@ -1,4 +1,4 @@
-SCSS Media Queries Mixins
+SCSS CSS3 Buttons
 ==================================================
 SCSS用に作られた質感の良いボタンを簡単に指定できるMixinです。。  
 このMixinを利用するにはSassとcompassが必要です。
