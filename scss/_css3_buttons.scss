@@ -1,0 +1,143 @@
+/* ************************************
+ *
+ * SCSS CSS3 Buttons
+ * 
+ * Aauthor   : Ryuichi Nonaka
+ * Version   : 0.1 Bata
+ * Copyright : 2012 Ryuichi Nonaka
+ * Date      : 2012/10/28
+ * Comment   : need Compass
+ *
+ * Released under the MIT license
+ *
+ *********************************** */
+
+/* ************************************
+ *
+ * Browser Prefix 
+ * Initialize variables
+ *
+ *********************************** */
+$MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
+
+
+/* ************************************
+ *
+ * Mobile Device mixin
+ * @param $type : button type.
+ * @param $color: button base color.
+ * @param $font_color: [white|black] button font color.
+ *
+ *********************************** */
+@mixin css3_buttons ( $type: normal, $color: #ccc, $font_color: white ) {
+        
+
+        //type
+        @if $type == normal {
+
+                //layout
+                padding : 5px 10px;
+
+                //typo
+                line-height         : 150%;
+                text-decoration     : none;
+                @if $font_color == white {
+                        color       : tint( $color, 90% );
+                        @include text-shadow( -1px -1px 0 shade( $color, 25% ) );
+                } @else if $font_color == black {
+                        color       : shade( $color, 80% );
+                        @include text-shadow( 1px 1px 0 tint( $color, 20%) );
+                }
+
+                //border
+                border      : 1px solid shade( $color, 20% );
+
+                //ornament
+                $box_shadow : inset 0 1px 0 tint( $color, 15% ); 
+                @include box-shadow( $box_shadow );
+                @include border-radius( 5px );
+                @include background-image( linear-gradient( $color, shade( $color, 10% ) ) );
+
+                &:hover
+                {
+                        //typo
+                        @if $font_color == white {
+                                color       : tint( $color, 90% );
+                                @include text-shadow( -1px -1px 0 shade( $color, 30% ) );
+                        } @else if $font_color == black {
+                                color       : shade( $color, 90% );
+                                @include text-shadow( 1px 1px 0 tint( $color, 25%) );
+                        }
+
+                        //border
+                        border      : 1px solid shade( $color, 40% );
+
+                        //ornament
+                        $box_shadow : inset 0 0 10px shade( $color, 30% ), inset 0 1px 0 $color; 
+                        @include box-shadow( $box_shadow );
+                        @include background-image( linear-gradient( shade( $color, 10% ), shade( $color, 20% ) ) );
+                }
+
+                &:active
+                {
+                        //typo
+                        @if $font_color == white {
+                                color       : tint( $color, 100% );
+                                @include text-shadow( -1px -1px 0 shade( $color, 20% ) );
+                        } @else if $font_color == black {
+                                color       : shade( $color, 70% );
+                                @include text-shadow( 1px 1px 0 tint( $color, 25%) );
+                        }
+
+                        //border
+                        border      : 1px solid shade( $color, 40% );
+
+                        //ornament
+                        $box_shadow : inset 0 0 15px shade( $color, 30% ); 
+                        @include box-shadow( $box_shadow );
+                        @include background-image( linear-gradient( shade( $color, 20% ), shade( $color, 10% ) ) );
+
+                }
+
+                &.current
+                {
+                        //typo
+                        @if $font_color == white {
+                                color       : tint( $color, 90% );
+                                @include text-shadow( -1px -1px 0 shade( $color, 40% ) );
+                        } @else if $font_color == black {
+                                color       : shade( $color, 80% );
+                                @include text-shadow( 1px 1px 0 tint( $color, 35%) );
+                        }
+
+                        //border
+                        border      : 1px solid shade( $color, 40% );
+
+                        //ornament
+                        $box_shadow : inset 0 0 10px shade( $color, 40% ), inset 0 1px 0 shade( $color, 15% ); 
+                        @include box-shadow( $box_shadow );
+                        @include background-image( linear-gradient( shade( $color, 30% ), shade( $color, 20% ) ) );
+                }
+
+                &:hover.current
+                {
+                        //typo
+                        @if $font_color == white {
+                                color       : tint( $color, 100% );
+                                @include text-shadow( -1px -1px 0 shade( $color, 40% ) );
+                        } @else if $font_color == black {
+                                color       : shade( $color, 70% );
+                                @include text-shadow( 1px 1px 0 tint( $color, 35%) );
+                        }
+
+                        //border
+                        border      : 1px solid shade( $color, 40% );
+
+                        //ornament
+                        $box_shadow : inset 0 0 10px shade( $color, 40% ), inset 0 1px 0 shade( $color, 15% ); 
+                        @include box-shadow( $box_shadow );
+                        @include background-image( linear-gradient( shade( $color, 20% ), shade( $color, 30% ) ) );
+                }
+        }
+}
+
